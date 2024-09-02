@@ -1,0 +1,106 @@
+/* 파일 다운로드 창 시작 */
+  .file-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 468px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    color: black;
+    margin: 0 auto;
+  }  
+  .file-box:hover {
+    background-color: #F9F9F9;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.2);
+    color: #CB242A;
+  }
+    
+  .file-box:hover .file-folder-icon i:before {
+    content: "\f07c";
+    margin-right: -4px;
+  }
+
+  .file-folder-icon {
+    margin-right: 20px; /* 여백 추가 */
+    padding-left: 10px;
+  }
+
+  .file-info {
+    text-align: left;
+  }
+
+  .file-size {
+    font-size: 12px;    
+  }
+  .Down-btn {    
+    text-decoration: none;    
+    cursor:pointer;
+  }
+
+  .file-down-icon {
+    margin-left: auto;
+    padding-right: 10px;
+  }
+
+    .title-box {
+      position: relative;
+      top: 20px;
+    font-family: 'MaruBuriExtraLight';
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #559CEF;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px black;
+    color:#ffffff;
+    display : flex;
+    align-items : center;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .middle-box {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    height: 130px;
+    padding: 30px 10px 0px 10px;
+  }
+    .bottom-box {
+    font-family: 'NanumSquareNeo';
+    position: relative;
+    top: -70px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    height: 100%;
+    margin-bottom: 20px;
+    background-color: #000000;
+    padding: 10px 20px 10px 20px;
+    font-size: 15px;
+    color:#FFE35B;
+    display : flex;
+    align-items : center;
+    border-radius: 0px 0px 10px 10px;
+    line-height: 1.3em;
+  }
+    .info-box {
+    font-family: 'NanumSquareNeo';
+    height: 50px;
+    width: 140px;
+    margin-bottom: 20px;
+    background-color: #000000;
+    padding: 0px 5px 0px 5px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    color:#FF5017;
+    display : flex;
+    justify-content : center;
+    border-radius: 20px 20px 20px 20px;
+    transform:translate(-50%);
+    position: relative; 
+    left:50%; 
+    top: -20px; 
+  }
+
+/* 파일 다운로드 창 끝 */

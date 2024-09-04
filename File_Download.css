@@ -118,3 +118,27 @@
   }
 
 /* 파일 다운로드 창 끝 */
+
+/* 링크 창 시작 */
+    .link-container { display: flex; align-items: center; max-width: 855px; margin: 0 auto; border: 1px solid #ccc; height: 200px; }    
+    .divider { height: 100%; margin: 0 15px; }    
+    .og-image { width: 200px; height: 200px; overflow: hidden; display: flex; position: relative; }
+    .og-image img { width: 100%; height: 100%; object-fit: cover; }
+    .og-image::after { content: ; position: absolute; top: 0; right: 0; bottom: 0; border-right: 1px solid #ccc; }
+    .og-text { flex: 1; }
+    .og-title { display: -webkit-box; -webkit-box-orient: vertical; font-size: 16px; vertical; -webkit-line-clamp: 2; overflow: hidden; font-size: 20px; font-weight: bold; padding: 10px 20px 20px 0px; }
+    .og-desc { display: -webkit-box; -webkit-box-orient: vertical; font-size: 16px; vertical; -webkit-line-clamp: 2; overflow: hidden; font-weight: normal; padding-right: 20px;}    
+    .link_text { text-decoration: none; }    
+    .og-host { font-size: 16px; color: #666; font-weight: normal; padding: 20px 0px 10px 0px;}
+    @media (max-width: 671px) { .og-desc { overflow: hidden; text-overflow: ellipsis; font-size: 13px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-height: 1.7; overflow: hidden; } }
+    @media (max-width: 570px) { .link-container { height: 89px; }
+      .link-container .og-title { font-size: 15px; padding: 15px 0px 0px 10px; }
+      .link-container .og-host { font-size: 12px; padding: 0px 0px 10px 10px; }
+      .link-container .og-desc { font-size: 5px; padding-left: 10px; }
+      .og-image { height: 100%; width: 100px; margin-right: -8%; }
+      .og-image::after { border: none; border-right: 1px solid #ccc; }
+      .og-image img { width: 100%; height: 100%; }
+      .og-desc { display: none; }
+      .og-text { padding-left: 10px; }
+
+/* 링크 창 끝 */

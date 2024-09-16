@@ -1,0 +1,309 @@
+    ::selection {
+        background-color: none;
+        color: inherit;
+    }
+@font-face {
+    font-family: 'Paperlogy_8_ExtraBold'; /* Paperlogy-8ExtraBold */
+    src: url('https://cdn.jsdelivr.net/gh/Wheelman-v2/Personalized_Fonts/Paperlogy/Paperlogy_8_ExtraBold.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Paperlogy_4_Regular'; /* Paperlogy-4Regular */
+    src: url('https://cdn.jsdelivr.net/gh/Wheelman-v2/Personalized_Fonts/Paperlogy/Paperlogy_4_Regular.woff2') format('woff2');
+}
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    .keyboard {
+        width: 780px;
+        height: 250px;
+        background-color: #333;
+        margin: 0px auto;
+        border-radius: 9px;
+        padding: 30px;
+        color: #eee;
+    }
+
+    .key {
+        width: 40px;
+        height: 40px;
+        display: block;
+        color: #000;
+        background-color: #fff;
+        text-align: left;
+        padding-left: 8px;
+        line-height: 29px;
+        border-radius: 2px;
+        float: left;
+        margin-left: 2px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        transition: box-shadow 0.7s ease;
+    }
+
+    .section-a {
+        width: 650px;
+        height: 260px;
+        float: left;
+    }
+
+    .section-b {
+        width: 130px;
+        height: 260px;
+        float: left;
+    }
+
+    .function {
+        font-size: 12px;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+
+    .small {
+        font-size: 10px;
+        line-height: 13px;
+        text-align: center;
+        padding: 0 5px;
+        padding-top: 2px;
+        height: 28px !important;
+    }
+
+    .space1 {
+        margin-right: 43px !important;
+    }
+
+    .space2 {
+        margin-right: 25px !important;
+    }
+
+    .dual {
+        font-size: 14px;
+        line-height: 20px;
+        width: 30px;
+    }
+
+    .backspace {
+        width: 84px;
+        font-size: 12px;
+    }
+
+    .tab {
+        width: 50px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .letter {
+        width: 30px;
+    }
+
+    .slash {
+        width: 64px;
+    }
+
+    .caps {
+        width: 70px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .enter {
+        width: 92px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .shift.left {
+        width: 90px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .shift.right {
+        width: 104px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .ctrl {
+        width: 50px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .win {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .left-alt {
+        width: 50px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .hanja {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 10px;
+    }
+
+    .space {
+        width: 212px;
+    }
+
+    .koreng {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 10px;
+    }
+
+    .right-alt {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .prnt {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .right-ctrl {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 13px;
+    }
+
+    .arrows {
+        position: relative;
+        top: 42px;
+    }
+
+    .sec-func .key {
+        width: 32px;
+        font-size: 10px;
+        text-align: left;
+        line-height: 40px;
+        float: left;
+    }
+
+    .sec-func div.dual {
+        line-height: 20px;
+    }
+
+    .arrows .key {
+        width: 33px;
+        text-align: center;
+        padding-left: 7px;
+        margin-left: 2px;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .key:hover {
+        background-color: #C4C4C4;
+        color: white;
+        z-index: 1000;
+    }
+
+    .active {
+        background-color: #2196F3 !important;
+        color: white !important;
+    }
+
+    #shortcutDisplay {
+        display: flex;
+        justify-content: space-between;
+        width: 838px;
+        height: 342px;
+        background-color: #333;
+        color: #fff;
+        font-size: 14px;
+        text-align: left;
+        padding: 80px 0px;
+        box-sizing: border-box;
+        border-radius: 7px;
+        margin: 0px 0px 20px 8px;
+    }
+
+    .shortcut-column {
+        flex: 1;
+        margin: 0 10px;
+        padding: 10px;
+        background-color: #444;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: flex-start;
+        border-radius: 5px;
+        overflow-y: auto;
+        max-height: 332px;
+      margin-top: -70px;
+      height: 302px;
+        font-family: 'Paperlogy_4_Regular';
+        color: #FFD665;
+    cursor: help;    
+    }
+    .shortcut-column span {
+        margin-bottom: -10px;
+    }
+
+
+    .shortcut-column h3 {
+        margin-bottom: 10px;
+        font-size: 25px;
+        color: #ddd;
+        text-align: center;
+    }
+    .description {
+        color: #8C8C8C;
+        margin-bottom: 10px;
+    }
+.shortcut-column span[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+.shortcut-column span[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: -5px;
+    padding: 5px 0px 5px 0px;
+    top: -4px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 3px;
+    white-space: wrap;
+    z-index: 9999;
+    font-size: 15px;
+    width: 248px;
+    text-align:center;
+}
+.title {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Paperlogy_8_ExtraBold';
+}

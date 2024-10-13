@@ -58,7 +58,8 @@
   margin: 0 auto;
   margin-bottom: 10px;
   background-color: #FFF;
-  cursor: pointer;
+  cursor: pointer;    
+  font-size: 14px;
 }
 
 .wm-file-box:hover {

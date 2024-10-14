@@ -132,6 +132,19 @@
   border-radius: 0px 0px 10px 10px;
   line-height: 1.3em;
 }
+  /* 모바일 환경을 위한 반응형 디자인 */
+  @media screen and (max-width: 768px) {
+    .wm-title-box {
+      font-size: 16px;
+      padding-left: 10px;
+    }
+    .wm-file-name {
+      font-size: 12px;
+    }
+    .wm-file-size {
+      font-size: 10px;
+    }
+  }
 /* 파일 다운로드 창 끝 */
 
 /* 링크 창 시작 */
@@ -230,17 +243,5 @@
                 font-size: 14px;
             }
         }
-  /* 모바일 환경을 위한 반응형 디자인 */
-  @media screen and (max-width: 768px) {
-    .wm-title-box {
-      font-size: 16px;
-      padding-left: 10px;
-    }
-    .wm-file-name {
-      font-size: 12px;
-    }
-    .wm-file-size {
-      font-size: 10px;
-    }
-  }
+
 /* 새 카드 링크 창 끝 */

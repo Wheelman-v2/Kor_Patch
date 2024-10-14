@@ -60,6 +60,7 @@
   background-color: #FFF;
   cursor: pointer;    
   font-size: 13px;
+  overflow: hidden; /* 추가: 내용이 넘치지 않도록 설정 */
 }
 
 .wm-file-box:hover {
@@ -76,11 +77,14 @@
 
 .wm-file-folder-icon {
   margin-right: 20px;
-  padding-left: 10px;
+  padding-left: 10px;  
+  flex-shrink: 0;
 }
 
 .wm-file-info {
-  text-align: left;
+  flex-grow: 1;
+  min-width: 0; /* 최소 너비를 0으로 설정하여 축소 가능하게 함 */
+  overflow: hidden; /* 내용이 넘치지 않도록 설정 */
 }
 
 .wm-file-size {
@@ -88,8 +92,9 @@
 }
 
 .wm-file-down-icon {
-  margin-left: auto;
+  margin-left: 10px;
   padding-right: 10px;
+  flex-shrink: 0;
 }
 
 .wm-info-box {
@@ -138,12 +143,16 @@
       font-size: 16px;
       padding-left: 10px;
     }
-    .wm-file-name {
-      font-size: 12px;
-    }
-    .wm-file-size {
-      font-size: 10px;
-    }
+  .wm-file-name {
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%; /* 부모 요소의 너비를 채우도록 설정 */
+  }
+  .wm-file-size {
+    font-size: 11px;
+  }
   }
 /* 파일 다운로드 창 끝 */
 

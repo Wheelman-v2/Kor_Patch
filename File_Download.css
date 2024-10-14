@@ -230,4 +230,21 @@
                 font-size: 14px;
             }
         }
+  /* 모바일 환경을 위한 반응형 디자인 */
+  @media screen and (max-width: 768px) {
+    .wm-title-box {
+      font-size: 16px;
+      padding-left: 10px;
+    }
+    .wm-file-name {
+      font-size: 12px;
+    }
+    .wm-file-size {
+      font-size: 10px;
+    }
+    .wm-bottom-box {
+      font-size: 13px;
+      padding: 10px;
+    }
+  }
 /* 새 카드 링크 창 끝 */

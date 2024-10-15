@@ -16,6 +16,8 @@
     width: calc(100% - 20px);
     max-width: 1200px;
     border: 1px solid #D8D8D8;
+    text-decoration: none;
+    color: inherit;
   }
   .card-image {
     width: 20%;
@@ -47,11 +49,6 @@
   .card-site {
     font-size: 14px;
     color: #999;
-  }
-  .card {
-    /* 기존 속성들 */
-    text-decoration: none;
-    color: inherit;
   }
   @media (max-width: 768px) {
       .card {

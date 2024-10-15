@@ -19,6 +19,9 @@
     text-decoration: none;
     color: inherit;
   }
+  .card:hover {
+    text-decoration: none;
+  }
   .card-image {
     width: 20%;
     min-width: 100px;

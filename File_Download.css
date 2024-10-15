@@ -211,47 +211,47 @@
     background-position: center;
     border: 1px solid #D8D8D8;
   }
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex-grow: 1;
+  .card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+  .card-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+  }
+  .card-description {
+    font-size: 16px;
+    color: #666;
+    margin: 0 0 15px 0;
+  }
+  .card-site {
+    font-size: 14px;
+    color: #999;
+  }
+  .card {
+    /* 기존 속성들 */
+    text-decoration: none;
+    color: inherit;
+  }
+  @media (max-width: 768px) {
+      .card {
+          flex-direction: column;
+      }
+      .card-image {
+          width: 100%;
+          max-width: none;
+          height: 240px;
+      }
+      .card-title {
+          font-size: 20px;
+      }
+      .card-description {
+          font-size: 14px;
         }
-        .card-title {
-            font-size: 30px;
-            font-weight: bold;
-            margin: 0 0 15px 0;
-        }
-        .card-description {
-            font-size: 16px;
-            color: #666;
-            margin: 0 0 15px 0;
-        }
-        .card-site {
-            font-size: 14px;
-            color: #999;
-        }
-        .card {
-            /* 기존 속성들 */
-            text-decoration: none;
-            color: inherit;
-        }
-        @media (max-width: 768px) {
-            .card {
-                flex-direction: column;
-            }
-            .card-image {
-                width: 100%;
-                max-width: none;
-                height: 240px;
-            }
-            .card-title {
-                font-size: 20px;
-            }
-            .card-description {
-                font-size: 14px;
-            }
-        }
+      }
 
 /* 새 카드 링크 창 끝 */

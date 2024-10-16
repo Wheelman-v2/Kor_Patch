@@ -63,3 +63,18 @@
           font-size: 14px;
         }
       }
+
+/* 카드 링크 스타일 재정의 */
+.card,
+.card:link,
+.card:visited,
+.card:hover,
+.card:active,
+.card *,
+.card *:link,
+.card *:visited,
+.card *:hover,
+.card *:active {
+  color: inherit !important;
+  text-decoration: none !important;
+}

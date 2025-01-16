@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Wheelman-v2/Personalized_Fonts/Personalized.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>89키 키보드</title>
+<style>
+    ::selection {
+        background-color: none;
+        color: inherit;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    .keyboard {
+        width: 780px;
+        height: 250px;
+        background-color: #333;
+        margin: 0px auto;
+        border-radius: 9px;
+        padding: 30px;
+        color: #eee;
+    }
+
+    .key {
+        width: 40px;
+        height: 40px;
+        display: block;
+        color: #000;
+        background-color: #fff;
+        text-align: left;
+        padding-left: 8px;
+        line-height: 29px;
+        border-radius: 2px;
+        float: left;
+        margin-left: 2px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        transition: box-shadow 0.7s ease;
+    }
+
+    .section-a {
+        width: 650px;
+        height: 260px;
+        float: left;
+    }
+
+    .section-b {
+        width: 130px;
+        height: 260px;
+        float: left;
+    }
+
+    .function {
+        font-size: 12px;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 15px;
+    }
+
+    .small {
+        font-size: 10px;
+        line-height: 13px;
+        text-align: center;
+        padding: 0 5px;
+        padding-top: 2px;
+        height: 28px !important;
+    }
+
+    .space1 {
+        margin-right: 43px !important;
+    }
+
+    .space2 {
+        margin-right: 25px !important;
+    }
+
+    .dual {
+        font-size: 14px;
+        line-height: 20px;
+        width: 30px;
+    }
+
+    .backspace {
+        width: 84px;
+        font-size: 12px;
+    }
+
+    .tab {
+        width: 50px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .letter {
+        width: 30px;
+    }
+
+    .slash {
+        width: 64px;
+    }
+
+    .caps {
+        width: 70px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .enter {
+        width: 92px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .shift.left {
+        width: 90px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .shift.right {
+        width: 104px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .ctrl {
+        width: 50px;
+        line-height: 40px;
+        font-size: 13px;
+    }
+
+    .win {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .left-alt {
+        width: 50px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .hanja {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 10px;
+    }
+
+    .space {
+        width: 212px;
+    }
+
+    .koreng {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 10px;
+    }
+
+    .right-alt {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .prnt {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .right-ctrl {
+        width: 38px;
+        line-height: 40px;
+        text-align: center;
+        padding-left: 0;
+        font-size: 13px;
+    }
+
+    .arrows {
+        position: relative;
+        top: 42px;
+    }
+
+    .sec-func .key {
+        width: 32px;
+        font-size: 10px;
+        text-align: left;
+        line-height: 40px;
+        float: left;
+    }
+
+    .sec-func div.dual {
+        line-height: 20px;
+    }
+
+    .arrows .key {
+        width: 33px;
+        text-align: center;
+        padding-left: 7px;
+        margin-left: 2px;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .key:hover {
+        background-color: #C4C4C4;
+        color: white;
+        z-index: 1000;
+    }
+
+    .active {
+        background-color: #2196F3 !important;
+        color: white !important;
+    }
+
+    #shortcutDisplay {
+        display: flex;
+        justify-content: space-between;
+        width: 838px;
+        height: 342px;
+        background-color: #333;
+        color: #fff;
+        font-size: 14px;
+        text-align: left;
+        padding: 7px 0px;
+        box-sizing: border-box;
+        border-radius: 7px;
+        margin-bottom: 20px;
+    }
+
+    .shortcut-column {
+        flex: 1;
+        margin: 0 10px;
+        padding: 10px;
+        background-color: #444;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: flex-start;
+        border-radius: 5px;
+        overflow-y: auto;
+        max-height: 332px;
+        font-family: 'Paperlogy_4_Regular';
+        color: #FFD665;
+    cursor: help;    
+    }
+    .shortcut-column span {
+        margin-bottom: -10px;
+    }
+
+
+    .shortcut-column h3 {
+        margin-bottom: 10px;
+        font-size: 25px;
+        color: #ddd;
+        text-align: center;
+    }
+    .description {
+        color: #8C8C8C;
+        margin-bottom: 10px;
+    }
+.shortcut-column span[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+.shortcut-column span[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: -5px;
+    padding: 5px 0px 5px 0px;
+    top: -4px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 3px;
+    white-space: wrap;
+    z-index: 9999;
+    font-size: 15px;
+    width: 248px;
+    text-align:center;
+}
+.title {
+    font-size: 30px;
+    font-family: 'Paperlogy_8_ExtraBold';
+}
+</style>
+
+</head>
+<body>
+<h3 class="title">Windows 단축키 찾아보기</h3>
+<div class="shortcut-display" id="shortcutDisplay">
+    <div class="shortcut-column" id="two-key-shortcuts">
+        <h3>두 개 키 조합</h3>
+        <!-- 두 개 키 조합이 여기에 표시됩니다 -->
+    </div>
+    <div class="shortcut-column" id="three-key-shortcuts">
+        <h3>세 개 키 조합</h3>
+        <!-- 세 개 키 조합이 여기에 표시됩니다 -->
+    </div>
+    <div class="shortcut-column" id="four-key-shortcuts">
+        <h3>네 개 키 조합</h3>
+        <!-- 네 개 키 조합이 여기에 표시됩니다 -->
+    </div>
+</div>
+
+<div class="cable"></div>
+
+<div class="keyboard">
+    <div class="section-a">
+        <div class="key function space1" data-key="Esc">Esc</div>
+        <div class="key function" data-key="F1">F1</div>
+        <div class="key function" data-key="F2">F2</div>
+        <div class="key function" data-key="F3">F3</div>
+        <div class="key function space2" data-key="F4">F4</div>
+        <div class="key function" data-key="F5">F5</div>
+        <div class="key function" data-key="F6">F6</div>
+        <div class="key function" data-key="F7">F7</div>
+        <div class="key function space2" data-key="F8">F8</div>
+        <div class="key function" data-key="F9">F9</div>
+        <div class="key function" data-key="F10">F10</div>
+        <div class="key function" data-key="F11">F11</div>
+        <div class="key function" data-key="F12">F12</div>
+        
+        <div class="key num dual" data-key="~">~<br>`</div>
+        <div class="key num dual" data-key="1">!<br>1</div>
+        <div class="key num dual" data-key="2">@<br>2</div>
+        <div class="key num dual" data-key="3">#<br>3</div>
+        <div class="key num dual" data-key="4">$<br>4</div>
+        <div class="key num dual" data-key="5">%<br>5</div>
+        <div class="key num dual" data-key="6">^<br>6</div>
+        <div class="key num dual" data-key="7">&<br>7</div>
+        <div class="key num dual" data-key="8">*<br>8</div>
+        <div class="key num dual" data-key="9">(<br>9</div>
+        <div class="key num dual" data-key="0">)<br>0</div>
+        <div class="key num dual" data-key="-">_<br>-</div>
+        <div class="key num dual" data-key="=">+<br>=</div>
+        <div class="key backspace" data-key="Backspace">Backspace</div>
+        
+        <div class="key tab" data-key="Tab">Tab</div>
+        <div class="key letter" data-key="Q">Q</div>
+        <div class="key letter" data-key="W">W</div>
+        <div class="key letter" data-key="E">E</div>
+        <div class="key letter" data-key="R">R</div>
+        <div class="key letter" data-key="T">T</div>
+        <div class="key letter" data-key="Y">Y</div>
+        <div class="key letter" data-key="U">U</div>
+        <div class="key letter" data-key="I">I</div>
+        <div class="key letter" data-key="O">O</div>
+        <div class="key letter" data-key="P">P</div>
+        <div class="key dual" data-key="[">{<br>[</div>
+        <div class="key dual" data-key="]">}<br>]</div>
+        <div class="key letter dual slash" data-key="\">|<br>￦</div>
+        <div class="key caps" data-key="Caps">Caps<br>Lock</div>
+        <div class="key letter" data-key="A">A</div>
+        <div class="key letter" data-key="S">S</div>
+        <div class="key letter" data-key="D">D</div>
+        <div class="key letter" data-key="F">F</div>
+        <div class="key letter" data-key="G">G</div>
+        <div class="key letter" data-key="H">H</div>
+        <div class="key letter" data-key="J">J</div>
+        <div class="key letter" data-key="K">K</div>
+        <div class="key letter" data-key="L">L</div>
+        <div class="key dual" data-key=";">:<br>;</div>
+        <div class="key dual" data-key="'">"<br>'</div>
+        <div class="key enter" data-key="Enter">Enter</div>
+        
+        <div class="key shift left" data-key="Shift"><i class="fa-solid fa-up-long"></i> Shift</div>
+        <div class="key letter" data-key="Z">Z</div>
+        <div class="key letter" data-key="X">X</div>
+        <div class="key letter" data-key="C">C</div>
+        <div class="key letter" data-key="V">V</div>
+        <div class="key letter" data-key="B">B</div>
+        <div class="key letter" data-key="N">N</div>
+        <div class="key letter" data-key="M">M</div>
+        <div class="key dual" data-key=","><br>,</div>
+        <div class="key dual" data-key=".">><br>.</div>
+        <div class="key dual" data-key="/">?<br>/</div>
+        <div class="key shift right" data-key="Shift"><i class="fa-solid fa-up-long"></i> Shift</div>
+        <div class="key ctrl" data-key="Ctrl">Ctrl</div>
+        <div class="key win" data-key="Windows"><i class="fa-brands fa-windows"></i></div>
+        <div class="key left-alt" data-key="Alt">Alt</div>
+        <div class="key hanja" data-key="hanja">한자</div>
+        <div class="key space" data-key="Space"></div>
+        <div class="key koreng" data-key="koreng">한/영</div>
+        <div class="key right-alt" data-key="오른쪽 Alt">Alt</div>
+        <div class="key win" data-key="Windows"><i class="fa-brands fa-windows"></i></div>
+        <div class="key prnt" data-key="prnt">Prnt</div>
+        <div class="key right-ctrl" data-key="오른쪽 Ctrl">Ctrl</div>
+    </div>
+    
+    <div class="section-b">
+        <div class="key function small" data-key="Prnt Scrn">Prnt Scrn</div>
+        <div class="key function small" data-key="Scroll Lock">Scroll Lock</div>
+        <div class="key function small" data-key="Pause Break">Pause Break</div>
+        
+        <div class="sec-func">
+            <div class="key" data-key="Insert">Insert</div>
+            <div class="key" data-key="Home">Home</div>
+            <div class="key dual" data-key="Page Up">Page Up</div>
+            <div class="key" data-key="Delete">Delete</div>
+            <div class="key" data-key="End">End</div>
+            <div class="key dual" data-key="Page Down">Page Down</div>
+        </div>
+        
+        <div class="arrows">
+            <div class="key hidden"></div>
+            <div class="key" data-key="↑">↑</div>
+            <div class="key hidden"></div>
+            <div class="key" data-key="←">←</div>
+            <div class="key" data-key="↓">↓</div>
+            <div class="key" data-key="→">→</div>
+        </div>
+    </div>
+</div>
+
+   <script>
+        const shortcuts = {
+            'Left Ctrl': [
+                { keys: ['Ctrl', 'C'], description: '복사 1' },
+                { keys: ['Ctrl', 'D'], description: '선택한 항목 삭제' },
+                { keys: ['Ctrl', 'V'], description: '붙여넣기' },
+                { keys: ['Ctrl', 'X'], description: '잘라내기' },
+                { keys: ['Ctrl', 'Z'], description: '실행 취소' },
+                { keys: ['Ctrl', 'Y'], description: '다시 실행' },
+                { keys: ['Ctrl', 'A'], description: '모두 선택' },
+                { keys: ['Ctrl', 'W'], description: '창 닫기' },                             
+                { keys: ['Ctrl', '화살표 키', 'Space'], description: '바탕 화면...', tooltip: '바탕 화면 또는 파일 탐색기에서 항목 선택' },
+                { keys: ['Ctrl', 'Space'], description: '중국어 IME를 사용...', tooltip: '중국어 IME를 사용하거나 사용하지 않도록 설정' }, 
+                { keys: ['Ctrl', 'Esc'], description: '시작 열기' }, 
+                { keys: ['Ctrl', 'Insert'], description: '복사 2' }, 
+                { keys: ['Ctrl', 'F5'], description: '현재 창을 새로 고침 1' }, 
+                { keys: ['Ctrl', 'R'], description: '현재 창을 새로 고침 2' },                
+                { keys: ['Ctrl', 'Shift'], description: '키보드 레이아웃 전환' },
+                { keys: ['Ctrl', 'Shift', 'T'], description: '닫은 탭 다시 열기' },
+                { keys: ['Ctrl', 'Shift', 'Esc'], description: '작업 관리자 열기' },
+                { keys: ['Ctrl', 'Shift', '화살표 키'], description: '텍스트...', tooltip: '텍스트 블록 선택' },
+                { keys: ['Ctrl', 'Shift', '작업 표시줄의 앱 클릭'], description: '...', tooltip: '앱을 관리자 권한으로 실행' },
+                { keys: ['Ctrl', 'Alt', 'Tab'], description: '열려 있는 앱 보기' },
+            ],
+            'Left Alt': [
+                { keys: ['Alt', 'Esc'], description: '열린 창을 순환' },
+                { keys: ['Alt', 'Tab'], description: '열린 창 전환' },
+                { keys: ['Alt', 'F4'], description: '활성 창 종료' },
+                { keys: ['Alt', 'F8'], description: '로그인 화면에서 형식화된 암...', tooltip: '로그인 화면에서 형식화된 암호를 표시' },
+                { keys: ['Alt', 'Page Up'], description: '한 화면 위로 이동' },
+                { keys: ['Alt', 'Page Down'], description: '한 화면 아래로 이...', tooltip: '한 화면 아래로 이동' },
+                { keys: ['Alt', 'Space'], description: '활성 창에 대한 상황에...', tooltip: '활성 창에 대한 상황에 맞는 메뉴를 열기' },
+                { keys: ['Alt', '_'], description: '앱에서 밑줄이 그은 문자에 대...', tooltip: '앱에서 밑줄이 그은 문자에 대한 명령을 실행' },
+            ],
+            'Shift': [
+                { keys: ['Shift', '화살표 키'], description: '여러 항목을 선택' },
+                { keys: ['Shift', 'F10'], description: '선택한 항목에 대한 상황...', tooltip: '선택한 항목에 대한 상황에 맞는 메뉴를 열기' },
+                { keys: ['Shift', '마우스 오른쪽 버튼'], description: '윈도우 11...', tooltip: '윈도우 11에서 윈도우 10 메뉴 호출' },
+                { keys: ['Shift', 'Delete'], description: '선택한 항목을 휴지통...', tooltip: '선택한 항목을 휴지통으로 이동하지 않고 삭제' },
+            ],
+            'Windows': [
+                { keys: ['Windows', 'A'], description: '알림 센터 열기' },
+                { keys: ['Windows', 'B'], description: '작업 표시줄에서 포커...', tooltip: '작업 표시줄에서 포커스 알림 영역 설정' },
+                { keys: ['Windows', 'D'], description: '모든 창을 최소화하거...', tooltip: '모든 창을 최소화하거나 복원' },
+                { keys: ['Windows', 'E'], description: '파일 탐색기 열기' },
+                { keys: ['Windows', 'F'], description: '피드백 허브 앱을 실행' },
+                { keys: ['Windows', 'G'], description: '게임 바 앱을 실행' },
+                { keys: ['Windows', 'H'], description: '음성 입력 실행' },
+                { keys: ['Windows', 'I'], description: '설정 열기' },
+                { keys: ['Windows', 'J'], description: '해당하는 경우 Wind...', tooltip: '해당하는 경우 Windows 10 팁에 포커스를 설정' },
+                { keys: ['Windows', 'K'], description: '연결 설정 열기' },
+                { keys: ['Windows', 'L'], description: '컴퓨터를 잠금' },                
+                { keys: ['Windows', 'M'], description: '모든 창을 최소화' },                
+                { keys: ['Windows', 'O'], description: '디바이스 방향을 잠금' },                
+                { keys: ['Windows', 'P'], description: '프로젝트 설정 열기' },                
+                { keys: ['Windows', 'Q'], description: '검색 창 열기 1' },                
+                { keys: ['Windows', 'R'], description: '실행 명령 창 열기' },                
+                { keys: ['Windows', 'S'], description: '검색 창 열기 2' },                
+                { keys: ['Windows', 'T'], description: '작업 표시줄에서 앱을...', tooltip: '작업 표시줄에서 앱을 순환' },                
+                { keys: ['Windows', 'U'], description: '접근성 설정 열기' },                
+                { keys: ['Windows', 'V'], description: '클립보드 bin 열기' },                
+                { keys: ['Windows', 'W'], description: 'Windows Ink 작...', tooltip: 'Windows Ink 작업 영역 열기' },                
+                { keys: ['Windows', 'X'], description: '빠른 링크 메뉴 열기' },                
+                { keys: ['Windows', 'Y'], description: '데스크톱과 Mixed...', tooltip: '데스크톱과 Mixed Reality 간의 입력을 변경' },                
+                { keys: ['Windows', 'Z'], description: '데스크톱 환경과 W...', tooltip: '데스크톱 환경과 Windows Mixed Reality 간에 입력을 전환' },
+                { keys: ['Windows', '/'], description: 'IME 다시 변환을 시...', tooltip: 'IME 다시 변환을 시작(윈11에서 실행 안 됨)' },
+                { keys: ['Windows', '-'], description: '돋보기를 사용하여 축소' },
+                { keys: ['Windows', ','], description: 'Windows 키를 누르...', tooltip: 'Windows 키를 누르고 있는 동안만 활성화된 모든 창을 숨김' },
+                { keys: ['Windows', '.'], description: '이모지 패널 열기 1' },                
+                { keys: ['Windows', ';'], description: '이모지 패널 열기 2' },                
+                { keys: ['Windows', 'Esc'], description: '돋보기 종료' },
+                { keys: ['Windows', 'Tab'], description: '작업 보기 열기' },
+                { keys: ['Windows', 'Home'], description: '활성 데스크톱...', tooltip: '활성 데스크톱 창을 제외한 모든 창을 최소화하거나 복원' },
+                { keys: ['Windows', 'Prnt Scrn'], description: '전체 화면...', tooltip: '전체 화면을 캡처 및 저장' },
+                { keys: ['Windows', 'Pause Break'], description: '시스템...', tooltip: '시스템 속성 표시' },
+                { keys: ['Windows', '0-9'], description: '작업 표시줄의 번호...', tooltip: '작업 표시줄의 번호 위치에 있는 앱 열기' },
+                { keys: ['Windows', 'Alt', 'D'], description: '작업 표시줄에...', tooltip: '작업 표시줄에서 날짜 및 시간 열기(윈11에서 실행 안 됨)' },
+                { keys: ['Windows', 'Alt', '0-9'], description: '작업 표시줄...', tooltip: '작업 표시줄의 번호 위치에 있는 앱의 점프 목록 열기' },
+                { keys: ['Windows', 'Ctrl', 'D'], description: '가상 데스크...', tooltip: '가상 데스크톱 만들기' },
+                { keys: ['Windows', 'Ctrl', 'F'], description: '도메인 네트워...', tooltip: '도메인 네트워크에서 디바이스에 대한 검색 열기' },
+                { keys: ['Windows', 'Ctrl', 'Q'], description: ' 빠른 지원 열기' },
+                { keys: ['Windows', 'Ctrl', 'F4'], description: '활성 상태의...', tooltip: '활성 상태의 가상 데스크톱 닫기' },
+                { keys: ['Windows', 'Ctrl', '0-9'], description: '작업 표시...', tooltip: '작업 표시줄의 숫자 위치에 있는 앱의 마지막 활성 창으로 전환' },
+                { keys: ['Windows', 'Ctrl', 'Enter'], description: '내레이...', tooltip: '내레이터 열기' },
+                { keys: ['Windows', 'Ctrl', 'Space'], description: '이전에...', tooltip: '이전에 선택한 입력 옵션을 변경' },
+                { keys: ['Windows', 'Ctrl', 'Shift', 'B'], description: '검은...', tooltip: '검은색 또는 빈 화면이 표시되면 디바이스를 깨움' },
+                { keys: ['Windows', 'Ctrl', 'Shift', '0-9'], description: '작...', tooltip: '작업 표시줄의 번호 위치에 있는 앱의 관리자 권한으로 다른 인스턴스 열기' },
+                { keys: ['Windows', 'Shift', 'M'], description: '데스크톱...', tooltip: '데스크톱에서 최소화된 창을 복원' },
+                { keys: ['Windows', 'Shift', 'S'], description: '원하는 영역...', tooltip: '원하는 영역을 드래그하여 캡처 및 저장' },
+                { keys: ['Windows', 'Shift', 'V'], description: '알림 순환' },
+                { keys: ['Windows', 'Shift', 'Space'], description: '키보드...', tooltip: '키보드 레이아웃 및 입력 언어를 변경(윈11에서 실행 안 됨)' },
+                { keys: ['Windows', 'Shift', '0-9'], description: '작업 표시...', tooltip: '작업 표시줄의 숫자 위치에서 다른 앱 인스턴스 열기' },
+            ],
+            // 다른 키들에 대한 단축키 정보 추가
+            'A': [
+                { keys: ['Ctrl', 'A'], description: '모두 선택' },
+            ],
+            'V': [
+                { keys: ['Ctrl', 'V'], description: '붙여넣기' },
+            ],
+            'X': [
+                { keys: ['Ctrl', 'X'], description: '잘라내기' },
+            ],
+            'Z': [
+                { keys: ['Ctrl', 'Z'], description: '실행 취소' },
+            ],
+            'F': [
+                { keys: ['Ctrl', 'F'], description: '찾기' },
+            ],
+            'W': [
+                { keys: ['Ctrl', 'W'], description: '창 닫기' },
+            ],
+            '←': [
+                { keys: ['Alt', '←'], description: '뒤로 이동' },
+                { keys: ['Windows', 'Shift', '←'], description: '모니터링할...', tooltip: '모니터링할 활성 창을 왼쪽으로 이동' },
+                { keys: ['Windows', '←'], description: '앱 또는 창을 왼쪽으로...', tooltip: '앱 또는 창을 왼쪽으로 이동 및 붙힘' },
+                { keys: ['Windows', 'Ctrl', '←'], description: '왼쪽의 가상...', tooltip: '왼쪽의 가상 데스크톱으로 전환' },
+                { keys: ['Ctrl', '←'], description: '커서를 이전 단어의 시작 부분...', tooltip: '커서를 이전 단어의 시작 부분으로 이동' },
+            ],
+            '→': [
+                { keys: ['Alt', '→'], description: '앞으로 이동' },
+                { keys: ['Windows', 'Shift', '→'], description: '모니터링할...', tooltip: '모니터링할 활성 창을 오른쪽으로 이동' },
+                { keys: ['Windows', '→'], description: '앱 또는 창을 오른쪽으...', tooltip: '앱 또는 창을 오른쪽으로 이동 및 붙힘' },
+                { keys: ['Windows', 'Ctrl', '→'], description: '오른쪽의 가상...', tooltip: '오른쪽의 가상 데스크톱으로 전환' },
+                { keys: ['Ctrl', '→'], description: '커서를 다음 단어의 시작 부분...', tooltip: '커서를 다음 단어의 시작 부분으로 이동' },
+            ],
+            '↑': [
+                { keys: ['Windows', '↑'], description: '선택된 창 복원' },
+                { keys: ['Windows', 'Shift', '↑'], description: '창을 화면 위...', tooltip: '창을 화면 위쪽과 아래쪽으로 늘임' },
+                { keys: ['Ctrl', '↑'], description: '커서를 이전 단락의 시작 부분...', tooltip: '커서를 이전 단락의 시작 부분으로 이동' },
+            ],
+            '↓': [
+                { keys: ['Windows', '↓'], description: '선택된 창 최소화' },
+                { keys: ['Windows', 'Shift', '↓'], description: 'Windows...', tooltip: 'Windows 11: 창이 스냅되거나 최대화되면 창을 복원, Windows 10: 너비를 유지하면서 활성 창을 수직으로 최대화하거나 최소화' },
+                { keys: ['Ctrl', '↓'], description: '커서를 다음 단락의 시작 부분...', tooltip: '커서를 다음 단락의 시작 부분으로 이동' },
+            ],
+            // 필요에 따라 다른 키들에 대한 정보도 추가할 수 있습니다.
+        };
+
+        function getSpecificShortcuts(key) {
+            return shortcuts[key] || [];
+        }
+
+        function getUniqueShortcuts(key) {
+            const allShortcuts = [];
+            const uniqueDescriptions = new Set();
+            
+            for (const shortcutList of Object.values(shortcuts)) {
+                shortcutList.forEach(shortcut => {
+                    if (shortcut.keys.includes(key) && !uniqueDescriptions.has(shortcut.description)) {
+                        allShortcuts.push(shortcut);
+                        uniqueDescriptions.add(shortcut.description);
+                    }
+                });
+            }
+            return allShortcuts;
+        }
+
+        function highlightKeys(keyArray) {
+            document.querySelectorAll('.key').forEach(key => key.classList.remove('active'));
+            keyArray.forEach(keyName => {
+                const keyElements = document.querySelectorAll('.key');
+                keyElements.forEach(keyElement => {
+                    const keyText = keyElement.dataset.key || keyElement.textContent.trim();
+                    if (keyText.toUpperCase() === keyName.toUpperCase()) {
+                        keyElement.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        function getSpecificShortcuts(key) {
+            return shortcuts[key] || [];
+        }
+
+        function getUniqueShortcuts(key) {
+            const allShortcuts = [];
+            const uniqueDescriptions = new Set();
+            
+            for (const shortcutList of Object.values(shortcuts)) {
+                shortcutList.forEach(shortcut => {
+                    if (shortcut.keys.includes(key) && !uniqueDescriptions.has(shortcut.description)) {
+                        allShortcuts.push(shortcut);
+                        uniqueDescriptions.add(shortcut.description);
+                    }
+                });
+            }
+            return allShortcuts;
+        }
+
+    function highlightKeys(keyArray) {
+        document.querySelectorAll('.key').forEach(key => key.classList.remove('active'));
+        keyArray.forEach(keyName => {
+            const keyElements = document.querySelectorAll('.key');
+            keyElements.forEach(keyElement => {
+                const keyData = keyElement.dataset.key;
+                if (keyName === '화살표 키' && ['←', '↑', '→', '↓'].includes(keyData)) {
+                    keyElement.classList.add('active');
+                } else if (keyName === '0-9' && /^[0-9]$/.test(keyData)) {
+                    keyElement.classList.add('active');
+                } else if (keyData === keyName) {
+                    keyElement.classList.add('active');
+                }
+            });
+        });
+    }
+
+        function displayShortcuts(key) {
+            let relatedShortcuts;
+            if (['Left Ctrl', 'Right Ctrl', 'Left Alt', 'Right Alt', 'Win', '화살표 키', '←', '→', '↑', '↓', '0-9'].includes(key)) {
+                relatedShortcuts = getSpecificShortcuts(key);
+            } else {
+                relatedShortcuts = getUniqueShortcuts(key);
+            }
+                        
+            const twoKeyShortcuts = [];
+            const threeKeyShortcuts = [];
+            const fourKeyShortcuts = [];
+            
+            relatedShortcuts.forEach(shortcut => {
+                const boldKeys = shortcut.keys.map(k => `<strong>${k}</strong>`).join(' + ');
+                const tooltipAttr = shortcut.tooltip ? `data-tooltip="${shortcut.tooltip}"` : '';
+                const descriptionText = `<span ${tooltipAttr}>${boldKeys} 　<span class="description">${shortcut.description}</span></span>`;
+                
+                console.log(descriptionText); // 이 줄을 추가
+        
+                if (shortcut.keys.length === 2) {
+                    twoKeyShortcuts.push(descriptionText);
+                } else if (shortcut.keys.length === 3) {
+                    threeKeyShortcuts.push(descriptionText);
+                } else if (shortcut.keys.length === 4) {
+                    fourKeyShortcuts.push(descriptionText);
+                }
+            });
+            
+            document.getElementById('two-key-shortcuts').innerHTML = 
+                 twoKeyShortcuts.length > 0 ? twoKeyShortcuts.join('<br>') : '단축키 없음';
+    
+            document.getElementById('three-key-shortcuts').innerHTML = 
+                 threeKeyShortcuts.length > 0 ? threeKeyShortcuts.join('<br>') : '단축키 없음';
+            document.getElementById('four-key-shortcuts').innerHTML = 
+                fourKeyShortcuts.length > 0 ? fourKeyShortcuts.join('<br>') : '단축키 없음';
+
+
+            highlightKeys(relatedShortcuts.flatMap(shortcut => shortcut.keys));
+        }
+
+        document.querySelectorAll('.key').forEach(key => {
+            key.addEventListener('click', function() {
+                const keyData = this.dataset.key;
+                displayShortcuts(keyData);
+            });
+        });
+    </script>
+</body>
+</html>
